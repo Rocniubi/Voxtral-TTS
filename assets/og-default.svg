@@ -1,0 +1,37 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="36" fill="url(#bg)"/>
+  <circle cx="1048" cy="98" r="210" fill="url(#glowA)" fill-opacity="0.72"/>
+  <circle cx="120" cy="560" r="240" fill="url(#glowB)" fill-opacity="0.42"/>
+  <rect x="84" y="86" width="140" height="140" rx="38" fill="url(#panel)"/>
+  <rect x="114" y="132" width="16" height="48" rx="8" fill="#F6FDFF"/>
+  <rect x="142" y="116" width="16" height="80" rx="8" fill="#D9FBFF"/>
+  <rect x="170" y="98" width="16" height="116" rx="8" fill="#8CF7EC"/>
+  <rect x="198" y="126" width="16" height="60" rx="8" fill="#F6FDFF"/>
+  <text x="84" y="332" fill="#F7FCFF" font-family="Arial, sans-serif" font-size="82" font-weight="700" letter-spacing="0.6">Voxtral TTS</text>
+  <text x="84" y="408" fill="#D9EAF8" font-family="Arial, sans-serif" font-size="32" font-weight="500">
+    Embedded homepage for the live Mistral text-to-speech demo
+  </text>
+  <rect x="84" y="456" width="418" height="70" rx="35" fill="rgba(247,252,255,0.08)" stroke="rgba(247,252,255,0.18)"/>
+  <text x="118" y="500" fill="#8CF7EC" font-family="Arial, sans-serif" font-size="28" font-weight="700">voxtraltts.online</text>
+  <text x="562" y="504" fill="#E7F3FB" font-family="Arial, sans-serif" font-size="28" font-weight="500">Try the Space without extra product clutter</text>
+  <defs>
+    <linearGradient id="bg" x1="52" y1="24" x2="1138" y2="612" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E1D30"/>
+      <stop offset="0.52" stop-color="#123A61"/>
+      <stop offset="1" stop-color="#117372"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="84" y1="86" x2="224" y2="226" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#55A5FF"/>
+      <stop offset="1" stop-color="#35D8C8"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1048 98) rotate(90) scale(210)">
+      <stop stop-color="#63B9FF"/>
+      <stop offset="1" stop-color="#63B9FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(120 560) rotate(90) scale(240)">
+      <stop stop-color="#57F1D8"/>
+      <stop offset="1" stop-color="#57F1D8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
+

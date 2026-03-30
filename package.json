@@ -1,0 +1,10 @@
+{
+  "name": "voxtraltts-online",
+  "private": true,
+  "scripts": {
+    "render:locales": "python3 scripts/render_localized_pages.py",
+    "dev": "python3 -m http.server 4173",
+    "pages:dev": "npx wrangler pages dev . --port 4173",
+    "deploy": "npx wrangler pages deploy . --project-name=voxtraltts-online"
+  }
+}

@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Voxtral TTS Online 무료 텍스트 음성 변환 및 음성 복제</title>
+<meta content="Voxtral TTS를 API 가이드, 설정 방법, 사용 사례, 워크플로우 팁, FAQ와 함께 살펴보세요. 음성 품질 평가, 도입 적합성, 프로덕션 리스크 검토에 도움이 됩니다." name="description"/>
+<meta content="" name="keywords"/>
+<meta content="index,follow" name="robots"/>
+<meta content="website" property="og:type"/>
+<meta content="Voxtral TTS" property="og:site_name"/>
+<meta content="Voxtral TTS Online 무료 텍스트 음성 변환 및 음성 복제" property="og:title"/>
+<meta content="Voxtral TTS를 API 가이드, 설정 방법, 사용 사례, 워크플로우 팁, FAQ와 함께 살펴보세요. 음성 품질 평가, 도입 적합성, 프로덕션 리스크 검토에 도움이 됩니다." property="og:description"/>
+<meta content="https://voxtraltts.online/ko/" property="og:url"/>
+<meta content="https://voxtraltts.online/assets/og-default.svg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Voxtral TTS Online 무료 텍스트 음성 변환 및 음성 복제" name="twitter:title"/>
+<meta content="Voxtral TTS를 API 가이드, 설정 방법, 사용 사례, 워크플로우 팁, FAQ와 함께 살펴보세요. 음성 품질 평가, 도입 적합성, 프로덕션 리스크 검토에 도움이 됩니다." name="twitter:description"/>
+<meta content="https://voxtraltts.online/assets/og-default.svg" name="twitter:image"/>
+<link href="https://voxtraltts.online/ko/" rel="canonical"/>
+<link href="/assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://mistralai-voxtral-tts-demo.hf.space" rel="preconnect"/>
+<link href="/styles.css" rel="stylesheet"/>
+<script data-domain="voxtraltts.online" defer="" src="https://click.pageview.click/js/script.js"></script>
+<script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Voxtral TTS",
+        "url": "https://voxtraltts.online/"
+      }
+    </script>
+<script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Voxtral TTS",
+        "url": "https://voxtraltts.online/",
+        "logo": "https://voxtraltts.online/assets/logo.svg"
+      }
+    </script>
+<link data-locale-alternate="true" href="https://voxtraltts.online/" hreflang="en" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/zh-cn/" hreflang="zh-CN" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/zh-tw/" hreflang="zh-TW" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/ko/" hreflang="ko" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/ja/" hreflang="ja" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/de/" hreflang="de" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/fr/" hreflang="fr" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/es/" hreflang="es" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/pt-br/" hreflang="pt-BR" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/pt-pt/" hreflang="pt-PT" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/ar/" hreflang="ar" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/ru/" hreflang="ru" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/tr/" hreflang="tr" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/sv/" hreflang="sv" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/nl/" hreflang="nl" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/ro/" hreflang="ro" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/bg/" hreflang="bg" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/fi/" hreflang="fi" rel="alternate"/><link data-locale-alternate="true" href="https://voxtraltts.online/" hreflang="x-default" rel="alternate"/></head>
+<body>
+<div class="page-shell">
+<header class="site-header">
+<div class="container">
+<div class="site-header__inner">
+<a aria-label="Voxtral TTS homepage" class="brand" href="/ko/" id="brand-link">
+<img alt="Voxtral TTS" id="brand-logo" src="/assets/logo.svg"/>
+</a>
+<div class="header-actions">
+<nav aria-label="Primary" class="header-nav" id="header-nav"><a href="#voxtral-demo">워크스페이스</a><a href="#faq">FAQ</a></nav>
+<details class="language-switcher" id="language-switcher">
+<summary class="language-switcher__summary">
+<span class="language-switcher__caption">Language</span>
+<span class="language-switcher__current" id="language-current-label">한국어</span>
+</summary>
+<div class="language-switcher__menu" id="language-menu"><a class="language-switcher__link" href="/" lang="en">English</a><a class="language-switcher__link" href="/zh-cn/" lang="zh-CN">简体中文</a><a class="language-switcher__link" href="/zh-tw/" lang="zh-TW">繁體中文</a><a aria-current="true" class="language-switcher__link" href="/ko/" lang="ko">한국어</a><a class="language-switcher__link" href="/ja/" lang="ja">日本語</a><a class="language-switcher__link" href="/de/" lang="de">Deutsch</a><a class="language-switcher__link" href="/fr/" lang="fr">Français</a><a class="language-switcher__link" href="/es/" lang="es">Español</a><a class="language-switcher__link" href="/pt-br/" lang="pt-BR">Português (Brasil)</a><a class="language-switcher__link" href="/pt-pt/" lang="pt-PT">Português</a><a class="language-switcher__link" href="/ar/" lang="ar">العربية</a><a class="language-switcher__link" href="/ru/" lang="ru">Русский</a><a class="language-switcher__link" href="/tr/" lang="tr">Türkçe</a><a class="language-switcher__link" href="/sv/" lang="sv">Svenska</a><a class="language-switcher__link" href="/nl/" lang="nl">Nederlands</a><a class="language-switcher__link" href="/ro/" lang="ro">Română</a><a class="language-switcher__link" href="/bg/" lang="bg">Български</a><a class="language-switcher__link" href="/fi/" lang="fi">Suomi</a></div>
+</details>
+</div>
+</div>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="container">
+<div class="hero__panel">
+<span class="eyebrow" id="hero-eyebrow">Mistral AI 모델을 위한 음성 워크플로우 가이드</span>
+<h1 id="hero-title"><span class="highlight">Voxtral TTS</span> Online - 텍스트 음성 변환 및 음성 복제</h1>
+<p id="hero-description">Voxtral TTS는 Mistral AI의 텍스트 음성 변환 모델로, 뛰어난 음성 품질, 제어 가능한 출력, 테스트에서 통합까지의 실용적인 경로를 원하는 많은 팀이 평가하는 모델입니다. 이 페이지는 voxtral mistral, mistral voxtral, mistral tts, mistral text to speech, voxtral api, voxtral tts github, voxtral github, vllm, ollama와 같은 실제 검색 의도를 위해 작성되었습니다. Voxtral TTS가 어디에 적합한지, 어떤 질문이 기술적 검증이 필요한지, 호기심에서 정보에 입각한 도입 계획으로 이동하는 방법을 이해하는 데 활용하세요.</p>
+<div class="hero__actions">
+<a class="button button-primary" href="#voxtral-demo" id="hero-primary-button">Voxtral TTS 워크스페이스 열기</a>
+<a class="button button-secondary" href="#overview" id="hero-secondary-button">Voxtral TTS 사용 사례 살펴보기</a>
+</div>
+<ul class="support-points" id="support-points"><li>음성 품질, API, 도입 컨텍스트</li><li>GitHub, vLLM, Ollama 연구 가이드</li><li>기술적 평가를 위한 확장된 FAQ</li></ul>
+</div>
+</div>
+</section>
+<section class="section" id="voxtral-demo">
+<div class="container">
+<div class="demo-shell">
+<div class="demo-shell__top">
+<div>
+<span class="eyebrow">Interactive listening workspace</span>
+<h2 id="demo-title">실제 음성 평가 워크플로우에서 Voxtral TTS 활용하기</h2>
+<p id="demo-description">이 워크스페이스는 페이지 내에 라이브 음성 인터페이스를 유지하면서, 주변 가이드에서 무엇을 들어야 하는지, 출력을 비교하는 방법, 통합 전에 중요한 기술적 질문들을 설명합니다.</p>
+</div>
+<a class="button button-secondary" href="#faq" id="demo-open-button">Voxtral TTS FAQ 읽기</a>
+</div>
+<div class="demo-frame" data-demo-state="loading" id="demo-frame">
+<iframe allow="autoplay; clipboard-write" id="demo-iframe" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://mistralai-voxtral-tts-demo.hf.space" title="실제 음성 평가 워크플로우에서 Voxtral TTS 활용하기"></iframe>
+</div>
+<div class="demo-note">
+<p id="demo-note">재생이 느리거나 대기열이 오래 걸리는 경우, 아래 섹션을 활용하여 다음 단계 전에 API 적합성, 음성 품질, GitHub 연구 경로, 배포 트레이드오프를 평가하세요.</p>
+<span class="chip">Built for first-pass voice checks</span>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="overview">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow" id="overview-label">개요</span>
+<h2 id="overview-title">Voxtral TTS가 깊이 있는 기술적 평가를 받을 자격이 있는 이유</h2>
+<p id="overview-description">Voxtral TTS에 대한 대부분의 검색은 단순한 호기심이 아닙니다. 일반적으로 제품 팀, 창업자, 엔지니어, 또는 성장 운영자가 Mistral AI가 음성 품질, 제어, 배포 유연성의 올바른 균형을 제공하는지 결정하려는 것입니다. 이 홈페이지는 그러한 높은 의도를 위해 구조화되었습니다. 라이브 워크스페이스에서 직접 출력을 판단할 수 있고, 아래 가이드에서는 Voxtral TTS가 실용적으로 어떻게 비교되는지, voxtral api나 voxtral tts github 같은 쿼리를 어떻게 해석할지, 엔지니어링 시간을 투자하기 전에 무엇을 검증해야 하는지 설명합니다.</p>
+</div>
+<div class="card-grid" id="overview-items"><article class="info-card"><div class="info-card__index">1</div><h3>음성 품질은 아키텍처 전에 판단해야 합니다</h3><p>첫 번째 질문은 어떤 스택을 사용할 것인가가 아닙니다. Voxtral TTS가 실제로 귀하의 스크립트, 톤, 청중에게 적합하게 들리는지입니다. 짧은 청취 테스트로 설정 논의에 시간을 낭비하기 전에 부적합한 옵션을 제거할 수 있습니다.</p></article><article class="info-card"><div class="info-card__index">2</div><h3>Voxtral TTS 관련 검색 의도는 일반적으로 기술적입니다</h3><p>사람들은 하나의 브랜드 문구에서 멈추지 않습니다. 이미 구현 옵션을 매핑하고 있기 때문에 voxtral mistral, mistral voxtral, mistral text to speech, Voxtral API, Voxtral GitHub, vLLM, 또는 Ollama를 검색합니다. 이 페이지의 콘텐츠는 그러한 실제 행동을 따릅니다.</p></article><article class="info-card"><div class="info-card__index">3</div><h3>오픈 웨이트와 호스티드 워크플로우는 다른 문제를 해결합니다</h3><p>일부 팀은 프로덕션까지 가장 빠른 경로를 원하고, 다른 팀은 비용, 지연 시간, 인프라에 대한 더 많은 제어를 원합니다. Voxtral TTS는 모든 배포 경로를 동등하게 취급하는 대신 그러한 관점에서 평가할 때 더 흥미로워집니다.</p></article><article class="info-card"><div class="info-card__index">4</div><h3>유용한 홈페이지는 평가 시간을 단축해야 합니다</h3><p>강력한 SEO 콘텐츠는 단순히 키워드를 반복하는 것 이상을 합니다. 기술적 구매자가 더 빠르게 이동할 수 있도록 도와야 합니다. 그래서 이 페이지는 음성 평가 가이드, 도입 질문, 더 큰 FAQ를 한 곳에 결합했습니다.</p></article></div>
+</div>
+</section>
+<section class="section" id="how-to-use">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow" id="quick-start-label">평가 흐름</span>
+<h2 id="quick-start-title">프로덕션 계획 전 Voxtral TTS 평가 방법</h2>
+<p id="quick-start-description">간결한 평가 루프는 일반적으로 길고 초점이 없는 세션보다 더 많은 것을 드러냅니다. 목표는 음성 품질 질문과 플랫폼 질문을 분리하고, Voxtral TTS가 귀하의 제품에 어디에 맞는지 식별하고, 출력이 그 노력을 가치 있게 만들기 전에 API나 배포 결정을 내리는 것을 피하는 것입니다.</p>
+</div>
+<div class="card-grid card-grid--four" id="quick-start-items"><article class="info-card"><div class="info-card__index">1</div><h3>짧고 자연스러운 텍스트로 시작하세요</h3><p>실제 제품 카피, 온보딩 내레이션, 지원 메시지, 또는 크리에이터 스크립트 라인처럼 들리는 2~3개의 문장을 사용하세요. 짧은 프롬프트는 추가 노이즈 없이 페이싱, 발음, 강조, 감정적 범위를 더 쉽게 들을 수 있게 합니다.</p></article><article class="info-card"><div class="info-card__index">2</div><h3>음성 품질과 스택 결정을 분리하세요</h3><p>배포 계획이 아직 불명확해도 음성은 강력할 수 있습니다. 먼저 사운드를 평가하세요. 그 후 Voxtral API 옵션, 참조 코드, 또는 vLLM 경로가 완전히 호스티드된 워크플로우보다 더 의미가 있는지와 같은 실용적인 질문으로 이동하세요.</p></article><article class="info-card"><div class="info-card__index">3</div><h3>실제로 중요한 사용 사례를 확인하세요</h3><p>비즈니스가 지원 오디오, 제품 설명, 현지화, 크리에이터 내레이션, 또는 에이전트 음성 응답에 의존하는 경우 일반적인 문단으로 Voxtral TTS를 판단하지 마세요. 실제 비즈니스 가치를 담은 사용 사례를 실행하세요.</p></article><article class="info-card"><div class="info-card__index">4</div><h3>GitHub, vLLM, Ollama를 별도의 경로로 유지하세요</h3><p>GitHub 연구는 구현 단서를 원할 때 유용합니다. vLLM은 심각한 추론 경로를 고려할 때 중요합니다. Ollama는 다른 호환성 질문입니다. 이들을 하나의 검색으로 묶는 대신 별도의 결정으로 취급하세요.</p></article></div>
+</div>
+</section>
+<section class="section" id="faq">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow" id="faq-label">FAQ</span>
+<h2 id="faq-title">Voxtral TTS API, 품질, 설정, 도입에 대한 FAQ</h2>
+<p id="faq-description">이 질문들은 진지한 사용자가 검색하는 방식을 따릅니다. 목표는 페이지를 채우기 위한 내용이 아니라, Voxtral TTS를 어떻게 평가해야 하는지, 기술적 불확실성이 어디에 여전히 존재하는지, 채택 전에 무엇을 검증해야 하는지 이해하도록 돕는 것입니다.</p>
+</div>
+<div class="faq-list" id="faq-items"><details class="faq-item" open=""><summary>Voxtral TTS란 무엇이며 Mistral AI에서 어디에 위치하나요?</summary><p>Voxtral TTS는 Mistral AI 음성 스택의 텍스트 음성 변환 제품입니다. 실용적으로 말해서, 사람들은 Mistral AI가 사용 가능한 음성 품질, 제어 가능한 출력, 평가에서 제품 통합까지의 현실적인 경로를 제공할 수 있는지 알고 싶어서 Voxtral TTS를 검색합니다. 그래서 mistral tts, mistral text to speech, voxtral mistral, mistral voxtral과 같은 쿼리가 종종 동일한 결정 과정을 가리킵니다.</p></details><details class="faq-item"><summary>Voxtral TTS를 음성 품질에 대해 어떻게 평가해야 하나요?</summary><p>가장 깨끗한 테스트는 실제 제품과 유사한 짧고 자연스러운 스크립트를 실행하는 것입니다. 페이싱, 발음, 강조, 일관성, 그리고 카피가 더 구체적일 때도 음성이 여전히 신뢰할 수 있게 들리는지 확인하세요. Voxtral TTS는 일반적인 쇼케이스 프롬프트뿐만 아니라 실제 브랜드 톤에 대해 판단되어야 합니다.</p></details><details class="faq-item"><summary>Voxtral TTS API 검색은 일반적으로 무엇을 의미하나요?</summary><p>대부분의 Voxtral API 검색은 실제로 세 가지 질문 중 하나를 묻는 것입니다: 호스티드 경로가 있는지, 요청 구조가 어떻게 보이는지, 프로덕션 전에 얼마나 많은 엔지니어링 작업이 필요한지. 이것들은 동일한 질문이 아닙니다. API 평가를 가용성, 인증 모델, 지연 시간 기대치, 출력 형식, 스택의 나머지 부분과의 운영 적합성의 혼합으로 취급하세요.</p></details><details class="faq-item"><summary>Voxtral TTS GitHub 결과는 언제 유용해지나요?</summary><p>GitHub는 모델이 이미 음성 품질 검사를 통과한 후에 유용해집니다. 그 시점에서 voxtral tts github나 voxtral github와 같은 검색은 커뮤니티 래퍼, 참조 구현, 배포 스크립트, 또는 인접 툴링을 이해하는 데 도움이 될 수 있습니다. 그 전에는 GitHub가 진정으로 검증하지 않은 모델에 대한 설정 작업으로 쉽게 주의를 분산시킬 수 있습니다.</p></details><details class="faq-item"><summary>Voxtral TTS와 vLLM을 함께 어떻게 고려해야 하나요?</summary><p>vLLM은 호기심을 넘어 Voxtral TTS가 심각한 환경에서 어떻게 제공될 수 있는지 묻기 시작할 때 중요해집니다. 단순히 추론이 작동하는지의 문제가 아닙니다. 지연 시간, 처리량, 인프라 제약, 비용 제어, 그리고 팀이 실제로 감당하고 싶은 운영 소유권의 정도에 관한 것입니다.</p></details><details class="faq-item"><summary>Voxtral TTS와 Ollama를 어떻게 평가해야 하나요?</summary><p>Ollama는 기본 가정이 아닌 별도의 호환성 경로로 취급되어야 합니다. 로컬 워크플로우가 중요해서 ollama를 검색한다면, 지원을 신중하게 검증하고 모든 커뮤니티 주장이 필요한 정확한 모델 버전이나 정확한 런타임 동작을 반영한다고 가정하지 마세요.</p></details><details class="faq-item"><summary>Voxtral TTS는 ElevenLabs와 비교해 어떤가요?</summary><p>중요한 유일한 비교는 실제 워크로드를 반영하는 것입니다. 동일한 스크립트, 동일한 대상 언어, 동일한 청취 기준을 실행하세요. 제어와 인프라 유연성이 더 중요할 때 Voxtral TTS가 매력적일 수 있고, ElevenLabs는 여전히 세련된 턴키 음성 출력에 대한 친숙한 벤치마크일 수 있습니다. 올바른 답은 슬로건이 아닌 제품 제약에 달려 있습니다.</p></details><details class="faq-item"><summary>어떤 제품 사용 사례가 Voxtral TTS에 가장 잘 맞나요?</summary><p>Voxtral TTS는 팀이 단순한 샘플 음성 이상이 필요할 때 가장 관련이 있습니다. 좋은 평가 대상에는 온보딩 내레이션, 지원 오디오, 제품 설명, 현지화, 크리에이터 도구, 에이전트 음성 응답이 포함됩니다. 이것들은 음성 품질, 운영 적합성, 도입 비용이 모두 함께 검토되어야 하는 사례들입니다.</p></details><details class="faq-item"><summary>팀이 Voxtral TTS 채택 전에 무엇을 확인해야 하나요?</summary><p>팀은 주요 스크립트 전반에 걸쳐 출력 품질이 유지되는지, 모델이 관심 있는 언어와 말하기 스타일에서 잘 동작하는지, 가능한 서빙 경로가 지연 시간과 안정성 기대치와 일치하는지 확인해야 합니다. 채택은 브랜드 친숙도만이 아닌 그러한 테스트의 증거를 따라야 합니다.</p></details><details class="faq-item"><summary>Voxtral TTS는 언제 평가를 넘어 도입할 준비가 되나요?</summary><p>Voxtral TTS는 청취 테스트가 이미 강력하고, 구현 경로가 리스크를 추정하기에 충분히 명확하고, 운영 모델이 팀에 맞을 때 더 깊은 도입 계획을 위한 준비가 됩니다. 그 시점에서 더 이상 음성이 좋게 들리는지만 묻는 것이 아닙니다. 전체 워크플로우가 실제 트래픽, 실제 스크립트, 실제 제품 제약을 견딜 수 있는지 묻는 것입니다.</p></details></div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="cta-block">
+<div class="cta-block__copy">
+<span class="eyebrow" id="cta-label">다음 단계</span>
+<h2 id="cta-title">음성 계획의 시작점으로 Voxtral TTS 활용하기</h2>
+<p id="cta-description">페이지 내 워크스페이스로 시작한 후, 가이드와 FAQ를 활용하여 다음 단계가 API 연구, 구현 계획, 비교 작업, 또는 도입 리스크의 더 깊은 검토인지 결정하세요.</p>
+</div>
+<div class="hero__actions">
+<a class="button button-primary" href="#voxtral-demo" id="cta-primary-button">Voxtral TTS 워크스페이스로 이동</a>
+<a class="button button-secondary" href="#faq" id="cta-secondary-button">Voxtral TTS FAQ 읽기</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container">
+<div class="site-footer__inner">
+<div class="site-footer__meta">
+<p>Voxtral TTS guide, use cases, and rollout questions in one workspace.</p>
+<p>
+<a href="#faq">Read the Voxtral TTS FAQ</a>
+</p>
+</div>
+<nav aria-label="Supported languages" class="footer-language-links" id="footer-language-links"><a class="footer-language-links__link" href="/" lang="en">English</a><a class="footer-language-links__link" href="/zh-cn/" lang="zh-CN">简体中文</a><a class="footer-language-links__link" href="/zh-tw/" lang="zh-TW">繁體中文</a><a aria-current="true" class="footer-language-links__link" href="/ko/" lang="ko">한국어</a><a class="footer-language-links__link" href="/ja/" lang="ja">日本語</a><a class="footer-language-links__link" href="/de/" lang="de">Deutsch</a><a class="footer-language-links__link" href="/fr/" lang="fr">Français</a><a class="footer-language-links__link" href="/es/" lang="es">Español</a><a class="footer-language-links__link" href="/pt-br/" lang="pt-BR">Português (Brasil)</a><a class="footer-language-links__link" href="/pt-pt/" lang="pt-PT">Português</a><a class="footer-language-links__link" href="/ar/" lang="ar">العربية</a><a class="footer-language-links__link" href="/ru/" lang="ru">Русский</a><a class="footer-language-links__link" href="/tr/" lang="tr">Türkçe</a><a class="footer-language-links__link" href="/sv/" lang="sv">Svenska</a><a class="footer-language-links__link" href="/nl/" lang="nl">Nederlands</a><a class="footer-language-links__link" href="/ro/" lang="ro">Română</a><a class="footer-language-links__link" href="/bg/" lang="bg">Български</a><a class="footer-language-links__link" href="/fi/" lang="fi">Suomi</a></nav>
+</div>
+</div>
+</footer>
+</div>
+<noscript>
+<div class="container" style="padding-bottom: 32px; color: var(--muted-strong);">
+        JavaScript is optional here. The default English copy is already rendered, but locale
+        switching will not run.
+      </div>
+</noscript>
+<script>
+      (() => {
+        const DEFAULT_LOCALE = "en";
+        const SUPPORTED_LOCALES = [
+          { key: "en", lang: "en", label: "English" },
+          { key: "zh-cn", lang: "zh-CN", label: "简体中文" },
+          { key: "zh-tw", lang: "zh-TW", label: "繁體中文" },
+          { key: "ko", lang: "ko", label: "한국어" },
+          { key: "ja", lang: "ja", label: "日本語" },
+          { key: "de", lang: "de", label: "Deutsch" },
+          { key: "fr", lang: "fr", label: "Français" },
+          { key: "es", lang: "es", label: "Español" },
+          { key: "pt-br", lang: "pt-BR", label: "Português (Brasil)" },
+          { key: "pt-pt", lang: "pt-PT", label: "Português" },
+          { key: "ar", lang: "ar", label: "العربية" },
+          { key: "ru", lang: "ru", label: "Русский" },
+          { key: "tr", lang: "tr", label: "Türkçe" },
+          { key: "sv", lang: "sv", label: "Svenska" },
+          { key: "nl", lang: "nl", label: "Nederlands" },
+          { key: "ro", lang: "ro", label: "Română" },
+          { key: "bg", lang: "bg", label: "Български" },
+          { key: "fi", lang: "fi", label: "Suomi" }
+        ];
+        const localeAliases = {
+          en: "en",
+          "en-us": "en",
+          "en-gb": "en",
+          "zh-cn": "zh-cn",
+          zh: "zh-cn",
+          "zh-sg": "zh-cn",
+          "zh-tw": "zh-tw",
+          "zh-hk": "zh-tw",
+          ko: "ko",
+          "ko-kr": "ko",
+          ja: "ja",
+          "ja-jp": "ja",
+          de: "de",
+          "de-de": "de",
+          "de-at": "de",
+          fr: "fr",
+          "fr-fr": "fr",
+          "fr-be": "fr",
+          es: "es",
+          "es-es": "es",
+          "pt-br": "pt-br",
+          "pt-pt": "pt-pt",
+          pt: "pt-pt",
+          ar: "ar",
+          "ar-sa": "ar",
+          "ar-ae": "ar",
+          "ar-eg": "ar",
+          ru: "ru",
+          "ru-ru": "ru",
+          tr: "tr",
+          "tr-tr": "tr",
+          sv: "sv",
+          "sv-se": "sv",
+          nl: "nl",
+          "nl-nl": "nl",
+          "nl-be": "nl",
+          ro: "ro",
+          "ro-ro": "ro",
+          bg: "bg",
+          "bg-bg": "bg",
+          fi: "fi",
+          "fi-fi": "fi"
+        };
+
+        function normalizeLocale(input) {
+          if (!input) {
+            return DEFAULT_LOCALE;
+          }
+
+          const normalized = String(input).trim().toLowerCase();
+          return localeAliases[normalized] || DEFAULT_LOCALE;
+        }
+
+        function getLocalePath(localeKey) {
+          const normalized = normalizeLocale(localeKey);
+          return normalized === DEFAULT_LOCALE ? "/" : `/${normalized}/`;
+        }
+
+        function getLocaleAbsoluteUrl(localeKey) {
+          return `https://voxtraltts.online${getLocalePath(localeKey)}`;
+        }
+
+        function resolveLocale() {
+          const url = new URL(window.location.href);
+          const pathSegment = url.pathname.split("/").filter(Boolean)[0];
+          if (pathSegment) {
+            return normalizeLocale(pathSegment);
+          }
+
+          const fromQuery = url.searchParams.get("lang");
+          if (fromQuery) {
+            const normalized = normalizeLocale(fromQuery);
+            window.history.replaceState(null, "", `${getLocalePath(normalized)}${url.hash}`);
+            return normalized;
+          }
+
+          return DEFAULT_LOCALE;
+        }
+
+        function buildLocaleHref(localeKey) {
+          return `${getLocalePath(localeKey)}${window.location.hash}`;
+        }
+
+        function setText(id, value) {
+          const element = document.getElementById(id);
+          if (!element || !value) {
+            return;
+          }
+          element.textContent = value;
+        }
+
+        function setLink(id, config) {
+          const element = document.getElementById(id);
+          if (!element || !config) {
+            return;
+          }
+
+          element.textContent = config.title;
+          element.setAttribute("href", config.url);
+          if (/^https?:/i.test(config.url)) {
+            element.setAttribute("target", "_blank");
+            element.setAttribute("rel", "noreferrer");
+          } else {
+            element.removeAttribute("target");
+            element.removeAttribute("rel");
+          }
+        }
+
+        function renderNav(items) {
+          const nav = document.getElementById("header-nav");
+          if (!nav || !Array.isArray(items) || items.length === 0) {
+            return;
+          }
+
+          nav.innerHTML = "";
+          items.forEach((item) => {
+            const link = document.createElement("a");
+            link.href = item.url;
+            link.textContent = item.title;
+            nav.appendChild(link);
+          });
+        }
+
+        function renderLanguageSwitcher(currentLocale) {
+          const normalizedCurrent = normalizeLocale(currentLocale);
+          const current = SUPPORTED_LOCALES.find((item) => item.key === normalizedCurrent) || SUPPORTED_LOCALES[0];
+          const currentLabel = document.getElementById("language-current-label");
+          const menu = document.getElementById("language-menu");
+          const switcher = document.getElementById("language-switcher");
+
+          if (currentLabel) {
+            currentLabel.textContent = current.label;
+          }
+
+          if (!menu) {
+            return;
+          }
+
+          menu.innerHTML = "";
+          SUPPORTED_LOCALES.forEach((item) => {
+            const link = document.createElement("a");
+            link.className = "language-switcher__link";
+            link.href = buildLocaleHref(item.key);
+            link.textContent = item.label;
+            link.lang = item.lang;
+            if (item.key === current.key) {
+              link.setAttribute("aria-current", "true");
+            }
+            menu.appendChild(link);
+          });
+
+          if (switcher) {
+            switcher.open = false;
+          }
+        }
+
+        function renderFooterLanguageLinks(currentLocale) {
+          const normalizedCurrent = normalizeLocale(currentLocale);
+          const container = document.getElementById("footer-language-links");
+          if (!container) {
+            return;
+          }
+
+          container.innerHTML = "";
+          SUPPORTED_LOCALES.forEach((item) => {
+            const link = document.createElement("a");
+            link.className = "footer-language-links__link";
+            link.href = buildLocaleHref(item.key);
+            link.textContent = item.label;
+            link.lang = item.lang;
+            if (item.key === normalizedCurrent) {
+              link.setAttribute("aria-current", "true");
+            }
+            container.appendChild(link);
+          });
+        }
+
+        function renderAlternateLinks(currentLocale) {
+          document
+            .querySelectorAll('link[data-locale-alternate="true"]')
+            .forEach((node) => node.remove());
+
+          SUPPORTED_LOCALES.forEach((item) => {
+            const link = document.createElement("link");
+            link.setAttribute("rel", "alternate");
+            link.setAttribute("hreflang", item.lang);
+            link.setAttribute("href", getLocaleAbsoluteUrl(item.key));
+            link.setAttribute("data-locale-alternate", "true");
+            document.head.appendChild(link);
+          });
+
+          const xDefault = document.createElement("link");
+          xDefault.setAttribute("rel", "alternate");
+          xDefault.setAttribute("hreflang", "x-default");
+          xDefault.setAttribute("href", getLocaleAbsoluteUrl(DEFAULT_LOCALE));
+          xDefault.setAttribute("data-locale-alternate", "true");
+          document.head.appendChild(xDefault);
+
+          const brandLink = document.getElementById("brand-link");
+          if (brandLink) {
+            brandLink.setAttribute("href", getLocalePath(currentLocale));
+          }
+        }
+
+        function renderSupportPoints(items) {
+          const list = document.getElementById("support-points");
+          if (!list || !Array.isArray(items)) {
+            return;
+          }
+
+          list.innerHTML = "";
+          items.forEach((item) => {
+            const li = document.createElement("li");
+            li.textContent = item;
+            list.appendChild(li);
+          });
+        }
+
+        function renderCards(containerId, items) {
+          const container = document.getElementById(containerId);
+          if (!container || !Array.isArray(items) || items.length === 0) {
+            return;
+          }
+
+          container.innerHTML = "";
+          items.forEach((item, index) => {
+            const article = document.createElement("article");
+            article.className = "info-card";
+
+            const marker = document.createElement("div");
+            marker.className = "info-card__index";
+            marker.textContent = String(index + 1);
+
+            const title = document.createElement("h3");
+            title.textContent = item.title;
+
+            const description = document.createElement("p");
+            description.textContent = item.description;
+
+            article.appendChild(marker);
+            article.appendChild(title);
+            article.appendChild(description);
+            container.appendChild(article);
+          });
+        }
+
+        function renderFaq(items) {
+          const container = document.getElementById("faq-items");
+          if (!container || !Array.isArray(items) || items.length === 0) {
+            return;
+          }
+
+          container.innerHTML = "";
+          items.forEach((item, index) => {
+            const details = document.createElement("details");
+            details.className = "faq-item";
+            if (index === 0) {
+              details.open = true;
+            }
+
+            const summary = document.createElement("summary");
+            summary.textContent = item.title;
+
+            const body = document.createElement("p");
+            body.textContent = item.description;
+
+            details.appendChild(summary);
+            details.appendChild(body);
+            container.appendChild(details);
+          });
+        }
+
+        function renderTitle(title, highlightText) {
+          const element = document.getElementById("hero-title");
+          if (!element || !title) {
+            return;
+          }
+
+          if (!highlightText || !title.includes(highlightText)) {
+            element.textContent = title;
+            return;
+          }
+
+          const escapedHighlight = highlightText.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+          const parts = title.split(new RegExp(`(${escapedHighlight})`, "u"));
+          element.innerHTML = parts
+            .map((part) =>
+              part === highlightText
+                ? `<span class="highlight">${part}</span>`
+                : part
+            )
+            .join("");
+        }
+
+        function applyMeta(meta, site) {
+          if (!meta) {
+            return;
+          }
+
+          document.title = meta.title;
+          document.documentElement.lang = site?.locale || DEFAULT_LOCALE;
+
+          const description = document.querySelector('meta[name="description"]');
+          const keywords = document.querySelector('meta[name="keywords"]');
+          const ogTitle = document.querySelector('meta[property="og:title"]');
+          const ogDescription = document.querySelector('meta[property="og:description"]');
+          const ogUrl = document.querySelector('meta[property="og:url"]');
+          const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+          const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+          const canonical = document.querySelector('link[rel="canonical"]');
+
+          if (description) {
+            description.setAttribute("content", meta.description || "");
+          }
+          if (keywords) {
+            keywords.setAttribute("content", meta.keywords || "");
+          }
+          if (ogTitle) {
+            ogTitle.setAttribute("content", meta.title || "");
+          }
+          if (ogDescription) {
+            ogDescription.setAttribute("content", meta.description || "");
+          }
+          if (ogUrl && site?.url) {
+            ogUrl.setAttribute("content", site.url);
+          }
+          if (twitterTitle) {
+            twitterTitle.setAttribute("content", meta.title || "");
+          }
+          if (twitterDescription) {
+            twitterDescription.setAttribute("content", meta.description || "");
+          }
+          if (canonical && site?.url) {
+            canonical.setAttribute("href", site.url);
+          }
+        }
+
+        const DEMO_HEIGHT_ANCHORS = [
+          { width: 302, height: 2530 },
+          { width: 342, height: 2330 },
+          { width: 680, height: 1900 },
+          { width: 732, height: 1850 },
+          { width: 936, height: 1450 },
+          { width: 1124, height: 1330 }
+        ];
+        let demoResizeBound = false;
+
+        function interpolateHeight(width, lower, upper) {
+          if (upper.width === lower.width) {
+            return lower.height;
+          }
+
+          const ratio = (width - lower.width) / (upper.width - lower.width);
+          return lower.height + (upper.height - lower.height) * ratio;
+        }
+
+        function calculateDemoInitialHeight(width) {
+          if (!width) {
+            return DEMO_HEIGHT_ANCHORS[DEMO_HEIGHT_ANCHORS.length - 1].height;
+          }
+
+          if (width <= DEMO_HEIGHT_ANCHORS[0].width) {
+            const overflowWidth = DEMO_HEIGHT_ANCHORS[0].width - width;
+            return DEMO_HEIGHT_ANCHORS[0].height + overflowWidth * 5;
+          }
+
+          for (let index = 0; index < DEMO_HEIGHT_ANCHORS.length - 1; index += 1) {
+            const lower = DEMO_HEIGHT_ANCHORS[index];
+            const upper = DEMO_HEIGHT_ANCHORS[index + 1];
+            if (width >= lower.width && width <= upper.width) {
+              return Math.round(interpolateHeight(width, lower, upper));
+            }
+          }
+
+          return DEMO_HEIGHT_ANCHORS[DEMO_HEIGHT_ANCHORS.length - 1].height;
+        }
+
+        function applyDemoHeight() {
+          const demoIframe = document.getElementById("demo-iframe");
+          const demoFrame = document.getElementById("demo-frame");
+          if (!demoIframe || !demoFrame) {
+            return;
+          }
+
+          const measuredWidth = demoIframe.clientWidth || demoFrame.clientWidth || window.innerWidth;
+          const nextHeight = calculateDemoInitialHeight(measuredWidth);
+          demoIframe.style.height = `${nextHeight}px`;
+        }
+
+        function initDemoEmbed(site) {
+          const demoFrame = document.getElementById("demo-frame");
+          const demoIframe = document.getElementById("demo-iframe");
+          if (!demoFrame || !demoIframe || !site?.demo?.url) {
+            return;
+          }
+
+          const demoUrl = site.demo.url.replace(/\/$/, "");
+          demoFrame.dataset.demoState = "loading";
+          demoIframe.setAttribute("src", demoUrl);
+          demoIframe.setAttribute("title", site.demo.title || "Voxtral TTS listening workspace");
+          applyDemoHeight();
+          window.requestAnimationFrame(() => {
+            applyDemoHeight();
+          });
+
+          if (!demoResizeBound) {
+            window.addEventListener("resize", () => {
+              applyDemoHeight();
+            });
+            demoResizeBound = true;
+          }
+
+          demoIframe.addEventListener(
+            "load",
+            () => {
+              demoFrame.dataset.demoState = "ready";
+            },
+            { once: true }
+          );
+
+          demoIframe.addEventListener(
+            "error",
+            () => {
+              demoFrame.dataset.demoState = "error";
+            },
+            { once: true }
+          );
+
+          window.setTimeout(() => {
+            if (demoFrame.dataset.demoState === "loading") {
+              demoFrame.dataset.demoState = "ready";
+            }
+          }, 1500);
+        }
+
+        async function loadLocale(locale) {
+          const response = await fetch(`/locales/${locale}.json`, { cache: "no-store" });
+          if (response.ok) {
+            return response.json();
+          }
+
+          if (locale !== DEFAULT_LOCALE) {
+            const fallback = await fetch(`/locales/${DEFAULT_LOCALE}.json`, { cache: "no-store" });
+            if (fallback.ok) {
+              return fallback.json();
+            }
+          }
+
+          throw new Error(`Failed to load locale: ${locale}`);
+        }
+
+        async function init() {
+          const locale = resolveLocale();
+          const content = await loadLocale(locale);
+          const { meta, site, header, hero, overview, quickStart, faq, cta } = content;
+          const activeLocale = content?.locale || locale;
+
+          applyMeta(meta, { locale: activeLocale, url: getLocaleAbsoluteUrl(activeLocale) });
+
+          if (site?.logo?.src) {
+            const brandLogo = document.getElementById("brand-logo");
+            if (brandLogo) {
+              brandLogo.setAttribute("src", site.logo.src);
+              brandLogo.setAttribute("alt", site.logo.alt || site.name || "Voxtral TTS");
+            }
+          }
+
+          renderNav(header?.nav);
+          renderLanguageSwitcher(activeLocale);
+          renderFooterLanguageLinks(activeLocale);
+          renderAlternateLinks(activeLocale);
+          setText("hero-eyebrow", hero?.eyebrow);
+          renderTitle(hero?.title, hero?.highlightText);
+          setText("hero-description", hero?.description);
+          setLink("hero-primary-button", hero?.primaryButton);
+          setLink("hero-secondary-button", hero?.secondaryButton);
+          renderSupportPoints(hero?.supportingPoints);
+
+          setText("demo-title", site?.demo?.title);
+          setText("demo-description", site?.demo?.description);
+          setText("demo-note", site?.demo?.note);
+          setLink("demo-open-button", {
+            title: site?.demo?.openLabel,
+            url: site?.demo?.openUrl || "#faq"
+          });
+
+          initDemoEmbed(site);
+
+          setText("overview-label", overview?.label);
+          setText("overview-title", overview?.title);
+          setText("overview-description", overview?.description);
+          renderCards("overview-items", overview?.items);
+
+          setText("quick-start-label", quickStart?.label);
+          setText("quick-start-title", quickStart?.title);
+          setText("quick-start-description", quickStart?.description);
+          renderCards("quick-start-items", quickStart?.items);
+
+          setText("faq-label", faq?.label);
+          setText("faq-title", faq?.title);
+          setText("faq-description", faq?.description);
+          renderFaq(faq?.items);
+
+          setText("cta-label", cta?.label);
+          setText("cta-title", cta?.title);
+          setText("cta-description", cta?.description);
+          setLink("cta-primary-button", cta?.primaryButton);
+          setLink("cta-secondary-button", cta?.secondaryButton);
+        }
+
+        init().catch((error) => {
+          console.error("[voxtraltts] locale init failed", error);
+        });
+      })();
+    </script>
+</body>
+</html>

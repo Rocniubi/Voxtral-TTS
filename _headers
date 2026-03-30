@@ -1,0 +1,12 @@
+/*
+  Cache-Control: public, max-age=172800, s-maxage=172800, stale-while-revalidate=86400
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https://click.pageview.click; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://click.pageview.click; connect-src 'self' https://click.pageview.click; frame-src https://mistralai-voxtral-tts-demo.hf.space; frame-ancestors 'self'; form-action 'self'
+
+/assets/*
+  Cache-Control: public, max-age=172800, s-maxage=172800, stale-while-revalidate=86400
+
+/locales/*
+  Cache-Control: public, max-age=172800, s-maxage=172800, stale-while-revalidate=86400

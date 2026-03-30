@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://voxtraltts.online/sitemap.xml
+
